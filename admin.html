@@ -1,0 +1,246 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Dashboard</title>
+
+<style>
+
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    body{
+        background:#0f172a;
+        color:white;
+        padding:30px;
+    }
+
+    .container{
+        max-width:1100px;
+        margin:auto;
+    }
+
+    h1{
+        text-align:center;
+        color:#38bdf8;
+        margin-bottom:25px;
+    }
+
+    .top-buttons{
+        display:flex;
+        justify-content:center;
+        gap:15px;
+        margin-bottom:30px;
+        flex-wrap:wrap;
+    }
+
+    .btn{
+        background:#38bdf8;
+        color:white;
+        text-decoration:none;
+        padding:12px 20px;
+        border-radius:8px;
+        font-weight:600;
+        transition:0.3s;
+    }
+
+    .btn:hover{
+        transform:translateY(-2px);
+    }
+
+    .form-card{
+        background:#1e293b;
+        padding:25px;
+        border-radius:15px;
+        margin-bottom:40px;
+    }
+
+    .form-card h2{
+        margin-bottom:20px;
+        color:#38bdf8;
+    }
+
+    input,
+    textarea{
+        width:100%;
+        padding:12px;
+        margin-bottom:15px;
+        border:none;
+        border-radius:8px;
+        font-size:15px;
+    }
+
+    textarea{
+        resize:none;
+    }
+
+    button{
+        background:#38bdf8;
+        color:white;
+        border:none;
+        padding:12px 20px;
+        border-radius:8px;
+        cursor:pointer;
+        font-size:15px;
+    }
+
+    button:hover{
+        opacity:0.9;
+    }
+
+    .projects-section h2{
+        color:#38bdf8;
+        margin-bottom:20px;
+    }
+
+    .project-card{
+        background:#1e293b;
+        padding:20px;
+        border-radius:12px;
+        margin-bottom:20px;
+    }
+
+    .project-card h3{
+        color:#38bdf8;
+        margin-bottom:10px;
+    }
+
+    .project-card p{
+        line-height:1.6;
+        margin-bottom:10px;
+    }
+
+    .tech-stack{
+        color:#94a3b8;
+        margin-bottom:15px;
+    }
+
+    .delete-btn{
+        background:#ef4444;
+        color:white;
+        text-decoration:none;
+        padding:8px 15px;
+        border-radius:6px;
+        display:inline-block;
+    }
+
+    .delete-btn:hover{
+        opacity:0.9;
+    }
+
+</style>
+
+
+</head>
+
+<body>
+
+<div class="container">
+
+
+<h1>Portfolio Admin Dashboard</h1>
+
+<div class="top-buttons">
+
+    <a href="/" class="btn">
+        View Portfolio
+    </a>
+
+    <a href="/messages" class="btn">
+        View Messages
+    </a>
+    <a href="/logout" class="btn">
+    Logout
+</a>
+
+</div>
+
+<div class="form-card">
+
+    <h2>Add New Project</h2>
+
+    <form action="/add_project" method="POST">
+
+        <input
+            type="text"
+            name="title"
+            placeholder="Project Title"
+            required>
+
+        <textarea
+            name="description"
+            rows="5"
+            placeholder="Project Description"
+            required></textarea>
+
+        <input
+            type="text"
+            name="tech_stack"
+            placeholder="Tech Stack">
+
+        <input
+            type="url"
+            name="github_link"
+            placeholder="GitHub Link">
+
+        <button type="submit">
+            Add Project
+        </button>
+
+    </form>
+
+</div>
+
+<div class="projects-section">
+
+    <h2>Existing Projects</h2>
+
+    {% for project in projects %}
+
+    <div class="project-card">
+
+        <h3>{{ project.title }}</h3>
+
+        <p>{{ project.description }}</p>
+
+        <div class="tech-stack">
+
+            <strong>Tech Stack:</strong>
+
+            {{ project.tech_stack }}
+
+        </div>
+
+        <a
+           href="/delete_project/{{ project.id }}"
+           class="delete-btn">
+
+           Delete Project
+
+        </a>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+
+</div>
+
+</body>
+</html>
+
+

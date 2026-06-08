@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Messages</title>
+
+    <style>
+
+        body{
+            font-family: Arial, sans-serif;
+            background:#0f172a;
+            color:white;
+            padding:30px;
+        }
+
+        h1{
+            text-align:center;
+            color:#38bdf8;
+        }
+
+        .message-card{
+            background:#1e293b;
+            padding:20px;
+            margin:20px auto;
+            border-radius:10px;
+            max-width:800px;
+            border-left:5px solid #38bdf8;
+        }
+
+        .name{
+            font-size:20px;
+            font-weight:bold;
+        }
+
+        .email{
+            color:#38bdf8;
+            margin-bottom:10px;
+        }
+
+        .message{
+            line-height:1.6;
+        }
+
+        .btn{
+            display:inline-block;
+            margin-bottom:20px;
+            text-decoration:none;
+            background:#38bdf8;
+            color:white;
+            padding:10px 15px;
+            border-radius:8px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <a href="/admin" class="btn">
+        Back to Admin
+    </a>
+
+    <h1>Contact Messages</h1>
+
+    {% if messages %}
+
+        {% for msg in messages %}
+
+        <div class="message-card">
+
+            <div class="name">
+                {{ msg.name }}
+            </div>
+
+            <div class="email">
+                {{ msg.email }}
+            </div>
+
+            <div class="message">
+                {{ msg.message }}
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    {% else %}
+
+        <h2 style="text-align:center;">
+            No Messages Yet
+        </h2>
+
+    {% endif %}
+
+</body>
+</html>
