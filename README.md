@@ -34,4 +34,17 @@ The backend is implemented using Python scripts with SQLite database.
 - `database.db` → Stores project information  
 
 ---
+## 🧪How to Run Locally
+Clone the repository:
+git clone https://github.com/Shagunkashyap1202/portfolio-website.git
+Navigate to the project folder:
+cd portfolio-website
+Run backend scripts:
+python init_db.py
+python insert_projects.py
+Open index.html in your browser
 
+👨‍💻 Author
+
+Shagun Kashyap
+Computer Science Engineering Student
