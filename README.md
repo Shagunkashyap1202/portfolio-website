@@ -1,2 +1,4 @@
 # portfolio-website
-Full Stack Personal Portfolio Website built using Flask and SQLite.
+This is a personal portfolio website built using HTML, CSS, and JavaScript.
+It includes a backend module using Python (SQLite) for managing project data and future scalability.
+The backend scripts (init_db.py, insert_projects.py) are included for database initialization and project insertion logic.
