@@ -44,7 +44,7 @@ python init_db.py
 python insert_projects.py
 Open index.html in your browser
 
-👨‍💻 Author
+## 👨‍💻 Author
 
 Shagun Kashyap
 Computer Science Engineering Student
